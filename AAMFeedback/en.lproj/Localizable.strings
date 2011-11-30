@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  AAMFeedbackViewController
+
+  Created by Takayuki Fukatsu on 11/11/30.
+  Copyright (c) 2011年 Art & Mobile. All rights reserved.
+*/
+
+//Navigation Controller Elements
+"AAMFeedbackTitle" = "Feedback";
+"AAMFeedbackTopicsTitle" = "Topics";
+
+"AAMFeedbackButtonMail" = "Mail";
+"AAMFeedbackDescriptionPlaceholder" = "Please write for details.";
+
+//Table Headers
+"AAMFeedbackTableHeaderTopics" = "Please Fill";
+"AAMFeedbackTableHeaderBasicInfo" = "Your Environment";
+
+//Topics Options
+"AAMFeedbackTopicsQuestion" = "Question";
+"AAMFeedbackTopicsRequest" = "Request";
+"AAMFeedbackTopicsBugReport" = "Bug Report";
+"AAMFeedbackTopicsMedia" = "Media";
+"AAMFeedbackTopicsBusiness" = "Business";
+"AAMFeedbackTopicsOther" = "Other";
+
+"AAMFeedbackMailDidFinishWithError" = "Failed to send your feedback. Please try later.";
