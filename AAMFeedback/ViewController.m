@@ -27,7 +27,9 @@
 - (void)btnDidPress:(id)sender
 {
     AAMFeedbackViewController *vc = [[[AAMFeedbackViewController alloc]init]autorelease];
-    vc.toRecipients = [NSArray arrayWithObject:@"YOUE_CONTACT@email.com"];
+    vc.toRecipients = [NSArray arrayWithObject:@"YOUR_CONTACT@email.com"];
+    vc.ccRecipients = nil;
+    vc.bccRecipients = nil;
     UINavigationController *nvc = [[[UINavigationController alloc]initWithRootViewController:vc]autorelease];
     [self presentModalViewController:nvc animated:YES];
 }

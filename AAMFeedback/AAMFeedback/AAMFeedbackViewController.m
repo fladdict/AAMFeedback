@@ -373,7 +373,7 @@
 
 // Codes are from 
 // http://stackoverflow.com/questions/448162/determine-device-iphone-ipod-touch-with-iphone-sdk
-// Thanks for 
+// Thanks for sss and UIBuilder
 - (NSString *) _platform
 {
     int mib[2];

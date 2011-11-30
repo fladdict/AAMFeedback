@@ -123,10 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				3D02639F14861EE800FBC566 /* AAMFeedback */,
-				3D02637114861E3800FBC566 /* AppDelegate.h */,
-				3D02637214861E3800FBC566 /* AppDelegate.m */,
-				3D02637414861E3800FBC566 /* ViewController.h */,
-				3D02637514861E3800FBC566 /* ViewController.m */,
+				3DC003A014869A9C004DF6F5 /* SampleCode */,
 				3D02636914861E3800FBC566 /* Supporting Files */,
 			);
 			name = src;
@@ -172,6 +169,17 @@
 				3D0263A314861EE800FBC566 /* AAMFeedbackViewController.m */,
 			);
 			path = AAMFeedback;
+			sourceTree = "<group>";
+		};
+		3DC003A014869A9C004DF6F5 /* SampleCode */ = {
+			isa = PBXGroup;
+			children = (
+				3D02637114861E3800FBC566 /* AppDelegate.h */,
+				3D02637214861E3800FBC566 /* AppDelegate.m */,
+				3D02637414861E3800FBC566 /* ViewController.h */,
+				3D02637514861E3800FBC566 /* ViewController.m */,
+			);
+			name = SampleCode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
