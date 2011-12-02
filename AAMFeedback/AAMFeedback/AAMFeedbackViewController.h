@@ -18,6 +18,7 @@
     BOOL _isFeedbackSent;
 }
 
+@property (retain, nonatomic) NSString *descriptionText;
 @property (retain, nonatomic) NSArray *topics;
 @property (retain, nonatomic) NSArray *topicsToSend;
 @property (retain, nonatomic) NSArray *toRecipients;
