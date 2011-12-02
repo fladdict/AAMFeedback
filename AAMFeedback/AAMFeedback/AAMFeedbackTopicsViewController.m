@@ -11,7 +11,7 @@
 
 @interface AAMFeedbackTopicsViewController(private)
     - (void)_setSelectedIndex:(int)theIndex;
-    - (int)_selectedIndex;
+    - (NSInteger)_selectedIndex;
     - (void)_updateCellselection;
     -(NSArray*)_topics;
 @end
@@ -20,6 +20,7 @@
 @implementation AAMFeedbackTopicsViewController
 
 @synthesize delegate;
+@synthesize selectedIndex = _selectedIndex;
 
 
 - (void)viewDidLoad
@@ -91,22 +92,25 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self _setSelectedIndex:indexPath.row];
+    NSInteger row = indexPath.row;
+    [self _setSelectedIndex:row];
     [self _updateCellselection];
+    
+    if ([delegate respondsToSelector:@selector(feedbackTopicsViewController:didSelectTopicAtIndex:)]) {
+        [delegate feedbackTopicsViewController:self didSelectTopicAtIndex:row];
+    }
 }
 
 #pragma mark - Internal
 
-- (int)_selectedIndex
+- (NSInteger)_selectedIndex
 {
-    return [[NSUserDefaults standardUserDefaults]integerForKey:@"AAMFeedbackTopicsIndex"];
+    return _selectedIndex;
 }
 
-- (void)_setSelectedIndex:(int)theIndex;
+- (void)_setSelectedIndex:(NSInteger)theIndex;
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger:theIndex forKey:@"AAMFeedbackTopicsIndex"];
-    [defaults synchronize];
+    _selectedIndex = theIndex;
 }
 
 - (void)_updateCellselection
@@ -131,8 +135,6 @@
 
 - (NSArray*)_topics
 {
-    if(delegate)
-        return (NSArray*)[delegate performSelector:@selector(topics)];
-    return nil;
+    return (NSArray*)[delegate performSelector:@selector(topics)];
 }
 @end

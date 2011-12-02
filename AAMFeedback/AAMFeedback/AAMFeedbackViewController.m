@@ -26,6 +26,7 @@
 
 @implementation AAMFeedbackViewController
 
+@synthesize descriptionText;
 @synthesize topics;
 @synthesize topicsToSend;
 @synthesize toRecipients;
@@ -72,6 +73,16 @@
         self.topicsToSend = theIssues;
     }
     return self;
+}
+
+- (void)dealloc {
+    self.descriptionText = nil;
+    self.topics = nil;
+    self.topicsToSend = nil;
+    self.toRecipients = nil;
+    self.ccRecipients = nil;
+    self.bccRecipients = nil;
+    [super dealloc];
 }
 
 
@@ -192,6 +203,7 @@
                 _descriptionTextView.font = [UIFont systemFontOfSize:16];
                 _descriptionTextView.delegate = self;
                 _descriptionTextView.scrollEnabled = NO;
+                _descriptionTextView.text = self.descriptionText;
                 [cell addSubview:_descriptionTextView];
                 
                 _descriptionPlaceHolder = [[[UITextField alloc]initWithFrame:CGRectMake(16, 8, 300, 20)]autorelease];
@@ -200,6 +212,7 @@
                 _descriptionPlaceHolder.userInteractionEnabled = NO;
                 [cell addSubview:_descriptionPlaceHolder];
                 
+                [self _updatePlaceholder];
             }
         }
     }
@@ -262,6 +275,7 @@
         
         AAMFeedbackTopicsViewController *vc = [[[AAMFeedbackTopicsViewController alloc]initWithStyle:UITableViewStyleGrouped]autorelease];
         vc.delegate = self;
+        vc.selectedIndex = _selectedTopicsIndex;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -295,6 +309,7 @@
     f.size.height = _descriptionTextView.contentSize.height;
     _descriptionTextView.frame = f;
     [self _updatePlaceholder];
+    self.descriptionText = _descriptionTextView.text;
     
     //Magic for updating Cell height
     [self.tableView beginUpdates];
@@ -319,6 +334,10 @@
     [controller dismissModalViewControllerAnimated:YES]; 
 }
 
+
+- (void)feedbackTopicsViewController:(AAMFeedbackTopicsViewController *)feedbackTopicsViewController didSelectTopicAtIndex:(NSInteger)selectedIndex {
+    _selectedTopicsIndex = selectedIndex;
+}
 
 #pragma mark - Internal Info
 
@@ -350,14 +369,12 @@
 
 - (NSString*)_selectedTopic
 {
-    int index = [[NSUserDefaults standardUserDefaults]integerForKey:@"AAMFeedbackTopicsIndex"];
-    return [topics objectAtIndex:index];
+    return [topics objectAtIndex:_selectedTopicsIndex];
 }
 
 - (NSString*)_selectedTopicToSend
 {
-    int index = [[NSUserDefaults standardUserDefaults]integerForKey:@"AAMFeedbackTopicsIndex"];
-    return [topicsToSend objectAtIndex:index];
+    return [topicsToSend objectAtIndex:_selectedTopicsIndex];
 }
 
 - (NSString*)_appName
