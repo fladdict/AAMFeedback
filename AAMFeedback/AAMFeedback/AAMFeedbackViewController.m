@@ -77,6 +77,11 @@
 
 - (void)dealloc {
     self.descriptionText = nil;
+    self.topics = nil;
+    self.topicsToSend = nil;
+    self.toRecipients = nil;
+    self.ccRecipients = nil;
+    self.bccRecipients = nil;
     [super dealloc];
 }
 
