@@ -262,6 +262,7 @@
         
         AAMFeedbackTopicsViewController *vc = [[[AAMFeedbackTopicsViewController alloc]initWithStyle:UITableViewStyleGrouped]autorelease];
         vc.delegate = self;
+        vc.selectedIndex = _selectedTopicsIndex;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -320,6 +321,10 @@
 }
 
 
+- (void)feedbackTopicsViewController:(AAMFeedbackTopicsViewController *)feedbackTopicsViewController didSelectTopicAtIndex:(NSInteger)selectedIndex {
+    _selectedTopicsIndex = selectedIndex;
+}
+
 #pragma mark - Internal Info
 
 - (void)_updatePlaceholder
@@ -350,14 +355,12 @@
 
 - (NSString*)_selectedTopic
 {
-    int index = [[NSUserDefaults standardUserDefaults]integerForKey:@"AAMFeedbackTopicsIndex"];
-    return [topics objectAtIndex:index];
+    return [topics objectAtIndex:_selectedTopicsIndex];
 }
 
 - (NSString*)_selectedTopicToSend
 {
-    int index = [[NSUserDefaults standardUserDefaults]integerForKey:@"AAMFeedbackTopicsIndex"];
-    return [topicsToSend objectAtIndex:index];
+    return [topicsToSend objectAtIndex:_selectedTopicsIndex];
 }
 
 - (NSString*)_appName

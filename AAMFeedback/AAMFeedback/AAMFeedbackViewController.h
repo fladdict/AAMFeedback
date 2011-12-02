@@ -14,6 +14,7 @@
 {
     UITextView  *_descriptionTextView;
     UITextField *_descriptionPlaceHolder;
+    NSInteger _selectedTopicsIndex;
     BOOL _isFeedbackSent;
 }
 
