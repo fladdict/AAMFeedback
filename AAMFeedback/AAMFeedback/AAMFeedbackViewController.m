@@ -204,13 +204,13 @@
                 _descriptionTextView.delegate = self;
                 _descriptionTextView.scrollEnabled = NO;
                 _descriptionTextView.text = self.descriptionText;
-                [cell addSubview:_descriptionTextView];
+                [cell.contentView addSubview:_descriptionTextView];
                 
                 _descriptionPlaceHolder = [[[UITextField alloc]initWithFrame:CGRectMake(16, 8, 300, 20)]autorelease];
                 _descriptionPlaceHolder.font = [UIFont systemFontOfSize:16];
                 _descriptionPlaceHolder.placeholder = NSLocalizedString(@"AAMFeedbackDescriptionPlaceholder", nil);
                 _descriptionPlaceHolder.userInteractionEnabled = NO;
-                [cell addSubview:_descriptionPlaceHolder];
+                [cell.contentView addSubview:_descriptionPlaceHolder];
                 
                 [self _updatePlaceholder];
             }
