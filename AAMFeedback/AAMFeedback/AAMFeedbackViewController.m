@@ -204,13 +204,13 @@
                 _descriptionTextView.delegate = self;
                 _descriptionTextView.scrollEnabled = NO;
                 _descriptionTextView.text = self.descriptionText;
-                [cell addSubview:_descriptionTextView];
+                [cell.contentView addSubview:_descriptionTextView];
                 
                 _descriptionPlaceHolder = [[[UITextField alloc]initWithFrame:CGRectMake(16, 8, 300, 20)]autorelease];
                 _descriptionPlaceHolder.font = [UIFont systemFontOfSize:16];
                 _descriptionPlaceHolder.placeholder = NSLocalizedString(@"AAMFeedbackDescriptionPlaceholder", nil);
                 _descriptionPlaceHolder.userInteractionEnabled = NO;
-                [cell addSubview:_descriptionPlaceHolder];
+                [cell.contentView addSubview:_descriptionPlaceHolder];
                 
                 [self _updatePlaceholder];
             }
@@ -411,11 +411,15 @@
 - (NSString *) _platformString
 {
     NSString *platform = [self _platform];
+    NSLog(@"%@",platform);
     if ([platform isEqualToString:@"iPhone1,1"]) return @"iPhone 1G";
     if ([platform isEqualToString:@"iPhone1,2"]) return @"iPhone 3G";
     if ([platform isEqualToString:@"iPhone2,1"]) return @"iPhone 3GS";
     if ([platform isEqualToString:@"iPhone3,1"]) return @"iPhone 4";
     if ([platform isEqualToString:@"iPhone4,1"]) return @"iPhone 4S";
+    if ([platform isEqualToString:@"iPhone5,1"]) return @"iPhone 5";
+    if ([platform isEqualToString:@"iPhone5,2"]) return @"iPhone 5";
+    if ([platform isEqualToString:@"iPhone5,3"]) return @"iPhone 5";
     if ([platform isEqualToString:@"iPod1,1"])   return @"iPod Touch 1G";
     if ([platform isEqualToString:@"iPod2,1"])   return @"iPod Touch 2G";
     if ([platform isEqualToString:@"iPod3,1"])   return @"iPod Touch 3G";
@@ -424,6 +428,12 @@
     if ([platform isEqualToString:@"iPad2,1"])   return @"iPad 2 (WiFi)";
     if ([platform isEqualToString:@"iPad2,2"])   return @"iPad 2 (GSM)";
     if ([platform isEqualToString:@"iPad2,3"])   return @"iPad 2 (CDMA)";
+    if ([platform isEqualToString:@"iPad3,1"])   return @"iPad 3 (WiFi)";
+    if ([platform isEqualToString:@"iPad3,2"])   return @"iPad 3 (GSM)";
+    if ([platform isEqualToString:@"iPad3,3"])   return @"iPad 3 (CDMA)";
+    if ([platform isEqualToString:@"iPad4,1"])   return @"iPad 4 (WiFi)";
+    if ([platform isEqualToString:@"iPad4,2"])   return @"iPad 4 (GSM)";
+    if ([platform isEqualToString:@"iPad4,3"])   return @"iPad 4 (CDMA)";
     if ([platform isEqualToString:@"i386"])   return @"iPhone Simulator";
     if ([platform isEqualToString:@"x86_64"])   return @"iPhone Simulator";
     return platform;
