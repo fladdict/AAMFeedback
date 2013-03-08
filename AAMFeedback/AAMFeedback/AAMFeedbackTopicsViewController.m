@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"AAMFeedbackTopicsTitle", nil);
+    self.title = NSLocalizedStringFromTable(@"AAMFeedbackTopicsTitle", @"AAMFeedback", nil);
 }
 
 - (void)viewDidUnload
@@ -83,7 +83,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    cell.textLabel.text = NSLocalizedString([[self _topics]objectAtIndex:indexPath.row],nil);
+    cell.textLabel.text = NSLocalizedStringFromTable([[self _topics]objectAtIndex:indexPath.row], @"AAMFeedback", nil);
     
     return cell;
 }
