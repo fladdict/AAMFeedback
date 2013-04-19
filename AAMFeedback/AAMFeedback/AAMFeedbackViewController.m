@@ -291,6 +291,9 @@
     [_descriptionTextView resignFirstResponder];
     
     MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+
+    if (!picker) return;
+
     picker.mailComposeDelegate = self;
     [picker setToRecipients:self.toRecipients];
     [picker setCcRecipients:self.ccRecipients];  
