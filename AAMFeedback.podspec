@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.author       = 'Takayuki Fukatsu'
   s.source       = { :git => 'https://github.com/fladdict/AAMFeedback.git' }
   s.source_files = 'AAMFeedback/AAMFeedback/*.{h,m}'
-  # s.resources    = 'AAMFeedback/*.{lproj}'
+  s.resource     = 'AAMFeedback/AAMFeedback.bundle'
   s.requires_arc = false
   s.frameworks   = 'UIKit', 'MessageUI', 'CoreGraphics'
 end
