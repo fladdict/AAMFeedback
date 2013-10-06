@@ -11,6 +11,9 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 
+#define LocalizedString(stringKey) \
+  [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"AAMFeedback" ofType:@"bundle"]] localizedStringForKey:stringKey value:stringKey table:nil]
+
 @interface AAMFeedbackViewController(private)
     - (NSString *) _platform;
     - (NSString *) _platformString;
@@ -88,10 +91,10 @@
 - (void)loadView
 {
     [super loadView];
-    self.title = NSLocalizedString(@"AAMFeedbackTitle", nil);
+    self.title = LocalizedString(@"AAMFeedbackTitle");
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelDidPress:)]autorelease];
     
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"AAMFeedbackButtonMail", nil) style:UIBarButtonItemStyleDone target:self action:@selector(nextDidPress:)]autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]initWithTitle:LocalizedString(@"AAMFeedbackButtonMail") style:UIBarButtonItemStyleDone target:self action:@selector(nextDidPress:)]autorelease];
 }
 
 - (void)viewDidLoad
@@ -165,10 +168,10 @@
 {
     switch (section) {
         case 0:
-            return NSLocalizedString(@"AAMFeedbackTableHeaderTopics", nil);
+            return LocalizedString(@"AAMFeedbackTableHeaderTopics");
             break;
         case 1:
-            return NSLocalizedString(@"AAMFeedbackTableHeaderBasicInfo", nil);
+            return LocalizedString(@"AAMFeedbackTableHeaderBasicInfo");
             break;
         default:
             break;
@@ -205,7 +208,7 @@
                 
                 _descriptionPlaceHolder = [[[UITextField alloc]initWithFrame:CGRectMake(16, 8, 300, 20)]autorelease];
                 _descriptionPlaceHolder.font = [UIFont systemFontOfSize:16];
-                _descriptionPlaceHolder.placeholder = NSLocalizedString(@"AAMFeedbackDescriptionPlaceholder", nil);
+                _descriptionPlaceHolder.placeholder = LocalizedString(@"AAMFeedbackDescriptionPlaceholder");
                 _descriptionPlaceHolder.userInteractionEnabled = NO;
                 [cell.contentView addSubview:_descriptionPlaceHolder];
                 
@@ -220,8 +223,8 @@
             switch (indexPath.row) {
                 case 0:
                     
-                    cell.textLabel.text = NSLocalizedString(@"AAMFeedbackTopicsTitle", nil);
-                    cell.detailTextLabel.text = NSLocalizedString([self _selectedTopic],nil);
+                    cell.textLabel.text = LocalizedString(@"AAMFeedbackTopicsTitle");
+                    cell.detailTextLabel.text = LocalizedString([self _selectedTopic]);
                     break;
                 case 1:
                 default:

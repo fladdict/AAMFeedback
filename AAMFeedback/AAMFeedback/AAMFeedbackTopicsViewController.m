@@ -8,6 +8,8 @@
 
 #import "AAMFeedbackTopicsViewController.h"
 
+#define LocalizedString(stringKey) \
+  [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"AAMFeedback" ofType:@"bundle"]] localizedStringForKey:stringKey value:stringKey table:nil]
 
 @interface AAMFeedbackTopicsViewController(private)
     - (void)_setSelectedIndex:(int)theIndex;
@@ -26,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"AAMFeedbackTopicsTitle", nil);
+    self.title = LocalizedString(@"AAMFeedbackTopicsTitle");
 }
 
 - (void)viewDidUnload
@@ -83,7 +85,7 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    cell.textLabel.text = NSLocalizedString([[self _topics]objectAtIndex:indexPath.row],nil);
+    cell.textLabel.text = LocalizedString([[self _topics]objectAtIndex:indexPath.row]);
     
     return cell;
 }
