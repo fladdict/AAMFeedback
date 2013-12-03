@@ -11,7 +11,7 @@
 #include <sys/types.h>
 #include <sys/sysctl.h>
 
-@interface AAMFeedbackViewController(private)
+@interface AAMFeedbackViewController()
     - (NSString *) _platform;
     - (NSString *) _platformString;
     - (NSString*)_feedbackSubject;
@@ -400,7 +400,7 @@
     mib[0] = CTL_HW;
     mib[1] = HW_MACHINE;
     sysctl(mib, 2, NULL, &len, NULL, 0);
-    machine = malloc(len);
+    machine = (char*)malloc(len);
     sysctl(mib, 2, machine, &len, NULL, 0);
     
     NSString *platform = [NSString stringWithCString:machine encoding:NSASCIIStringEncoding];

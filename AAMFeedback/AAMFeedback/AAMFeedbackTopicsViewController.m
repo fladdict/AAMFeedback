@@ -9,7 +9,7 @@
 #import "AAMFeedbackTopicsViewController.h"
 
 
-@interface AAMFeedbackTopicsViewController(private)
+@interface AAMFeedbackTopicsViewController()
     - (void)_setSelectedIndex:(int)theIndex;
     - (NSInteger)_selectedIndex;
     - (void)_updateCellselection;
