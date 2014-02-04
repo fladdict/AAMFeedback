@@ -88,10 +88,10 @@
 - (void)loadView
 {
     [super loadView];
-    self.title = NSLocalizedString(@"AAMFeedbackTitle", nil);
+    self.title = NSLocalizedStringFromTable(@"AAMFeedbackTitle", @"AAMFeedback", nil);
     self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelDidPress:)]autorelease];
     
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]initWithTitle:NSLocalizedString(@"AAMFeedbackButtonMail", nil) style:UIBarButtonItemStyleDone target:self action:@selector(nextDidPress:)]autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc]initWithTitle:NSLocalizedStringFromTable(@"AAMFeedbackButtonMail", @"AAMFeedback", nil) style:UIBarButtonItemStyleDone target:self action:@selector(nextDidPress:)]autorelease];
 }
 
 - (void)viewDidLoad
@@ -165,10 +165,10 @@
 {
     switch (section) {
         case 0:
-            return NSLocalizedString(@"AAMFeedbackTableHeaderTopics", nil);
+            return NSLocalizedStringFromTable(@"AAMFeedbackTableHeaderTopics", @"AAMFeedback", nil);
             break;
         case 1:
-            return NSLocalizedString(@"AAMFeedbackTableHeaderBasicInfo", nil);
+            return NSLocalizedStringFromTable(@"AAMFeedbackTableHeaderBasicInfo", @"AAMFeedback", nil);
             break;
         default:
             break;
@@ -205,7 +205,7 @@
                 
                 _descriptionPlaceHolder = [[[UITextField alloc]initWithFrame:CGRectMake(16, 8, 300, 20)]autorelease];
                 _descriptionPlaceHolder.font = [UIFont systemFontOfSize:16];
-                _descriptionPlaceHolder.placeholder = NSLocalizedString(@"AAMFeedbackDescriptionPlaceholder", nil);
+                _descriptionPlaceHolder.placeholder = NSLocalizedStringFromTable(@"AAMFeedbackDescriptionPlaceholder", @"AAMFeedback", nil);
                 _descriptionPlaceHolder.userInteractionEnabled = NO;
                 [cell.contentView addSubview:_descriptionPlaceHolder];
                 
@@ -220,8 +220,8 @@
             switch (indexPath.row) {
                 case 0:
                     
-                    cell.textLabel.text = NSLocalizedString(@"AAMFeedbackTopicsTitle", nil);
-                    cell.detailTextLabel.text = NSLocalizedString([self _selectedTopic],nil);
+                    cell.textLabel.text = NSLocalizedStringFromTable(@"AAMFeedbackTopicsTitle", @"AAMFeedback", nil);
+                    cell.detailTextLabel.text = NSLocalizedStringFromTable([self _selectedTopic], @"AAMFeedback", nil);
                     break;
                 case 1:
                 default:
